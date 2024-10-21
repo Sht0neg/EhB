@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EhB
 {
@@ -19,6 +20,7 @@ namespace EhB
     /// </summary>
     public partial class AddWindow : Window
     {
+        bool f = false;
         MainWindow? parent;
         ClWindow? sparent;
         public Clothe? CurrentGood;
@@ -31,6 +33,7 @@ namespace EhB
             InitializeComponent();
             this.parent = parent;
             this.Title = "Добавление товара";
+            this.f = true;
         }
 
         public AddWindow(ClWindow? parent)
@@ -45,9 +48,10 @@ namespace EhB
             this.CurrentGood = good;
 
             NameBox.Text = good.Titel;
-            DataBox.DisplayDate = (DateTime)good.DateProd;
+            DataBox.DisplayDate = TimeZoneInfo.ConvertTime(good.DateProd, TimeZoneInfo.Local);
             SizeBox.Text = good.Size;
             CountBox.Text = Convert.ToString(good.Count);
+            this.f = false;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -57,15 +61,26 @@ namespace EhB
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-                    parent.addGood(
-                    NameBox.Text,
-                    Convert.ToInt32(CountBox.Text),
-                    DataBox.DisplayDate,
-                    SizeBox.Text
+            if (f)
+            {
+                parent.addGood(
+                NameBox.Text,
+                Convert.ToInt32(CountBox.Text),
+                DataBox.DisplayDate,
+                SizeBox.Text
                 );
-                Close();
-                MessageBox.Show("Товар успешно добавлен!");
+            }
+            else
+            {
+                CurrentGood.Titel = NameBox.Text;
+                CurrentGood.Size = SizeBox.Text;
+                CurrentGood.DateProd = TimeZoneInfo.ConvertTime(DataBox.DisplayDate, TimeZoneInfo.Utc);
+                CurrentGood.Count = Convert.ToInt32(CountBox.Text);
+            }
+            Close();
+            MessageBox.Show("Товар успешно добавлен!");
             
         }
+
     }
 }

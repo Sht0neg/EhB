@@ -32,10 +32,10 @@ namespace EhB
             context = new Context();
             context.Database.EnsureCreated();
             context.Clothes.Load();
-            context.Clothes.Add(new Clothe
+            context.Clothes.AddRange(new Clothe
             {
                 Titel = title,
-                DateProd = date,
+                DateProd = TimeZoneInfo.ConvertTime(date, TimeZoneInfo.Utc),
                 Count = count,
                 Size = size
             }); ;

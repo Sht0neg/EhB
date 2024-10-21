@@ -21,7 +21,7 @@ namespace EhB
     public partial class ClWindow : Window
     {
         public Context? context;
-        MainWindow? parent;
+        public MainWindow? parent;
         public ClWindow(MainWindow? parent)
         {
             InitializeComponent();
@@ -31,10 +31,10 @@ namespace EhB
         {
             context = new Context();
 
-            context.Database.EnsureCreated();
             context.Clothes.Load();
 
             ClDataGridView.ItemsSource = context.Clothes.Local.ToObservableCollection();
+            //ClDataGridView.ItemsSource = context.Clothes.Local.ToBindingList();
         }
         private void ReButton_Click(object sender, RoutedEventArgs e)
         {
@@ -50,7 +50,14 @@ namespace EhB
 
             Clothe modif = re.CurrentGood;
 
-            context.Clothes.Update(selectedItem);
+            context.Clothes.Update(modif);
+            context.SaveChanges();
+            context = new Context();
+
+            context.Clothes.Load();
+
+            ClDataGridView.ItemsSource = context.Clothes.Local.ToObservableCollection();
+            context.SaveChanges();
         }
     }
 }
