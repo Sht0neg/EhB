@@ -1,0 +1,44 @@
+﻿<Window x:Class="TextFormatter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Text Formatter" Height="400" Width="600">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <ToolBar>
+                <Button Name="BoldButton" Content="Bold" Click="BoldButton_Click" />
+                <Button Name="ItalicButton" Content="Italic" Click="ItalicButton_Click" />
+                <Button Name="UnderlineButton" Content="Underline" Click="UnderlineButton_Click" />
+                <Button Name="ClearButton" Content="Clear" Click="ClearButton_Click" />
+                <Label Content="Font Size:"/>
+                <ComboBox Name="FontSizeComboBox" SelectionChanged="FontSizeComboBox_SelectionChanged">
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="16"/>
+                    <ComboBoxItem Content="18"/>
+                    <ComboBoxItem Content="20"/>
+                </ComboBox>
+                <Label Content="Font Color:"/>
+                <ComboBox Name="FontColorComboBox" SelectionChanged="FontColorComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Black"/>
+                    <ComboBoxItem Content="Red"/>
+                    <ComboBoxItem Content="Blue"/>
+                    <ComboBoxItem Content="Green"/>
+                </ComboBox>
+            </ToolBar>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Start:"/>
+                <TextBox Name="StartIndexTextBox" Width="50" PreviewTextInput="NumericValidationTextBox"/>
+                <Label Content="End:"/>
+                <TextBox Name="EndIndexTextBox" Width="50" PreviewTextInput="NumericValidationTextBox"/>
+            </StackPanel>
+
+            <RichTextBox Name="TextEditor" Height="200" VerticalScrollBarVisibility="Auto">
+                <FlowDocument>
+                    <Paragraph>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </StackPanel>
+    </Grid>
+</Window>

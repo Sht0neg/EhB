@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EhB", "EhB\EhB.csproj", "{23BB0370-1FB5-4356-BB1E-06DAB0EF601E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EhB", "EhB\EhB.csproj", "{23BB0370-1FB5-4356-BB1E-06DAB0EF601E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFormatter", "TextFormatter\TextFormatter.csproj", "{36BAD910-1D88-4745-88B2-A5F4934C1E65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{23BB0370-1FB5-4356-BB1E-06DAB0EF601E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23BB0370-1FB5-4356-BB1E-06DAB0EF601E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23BB0370-1FB5-4356-BB1E-06DAB0EF601E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36BAD910-1D88-4745-88B2-A5F4934C1E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36BAD910-1D88-4745-88B2-A5F4934C1E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36BAD910-1D88-4745-88B2-A5F4934C1E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36BAD910-1D88-4745-88B2-A5F4934C1E65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
