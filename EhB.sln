@@ -5,9 +5,11 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EhB", "EhB\EhB.csproj", "{23BB0370-1FB5-4356-BB1E-06DAB0EF601E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFormatter", "TextFormatter\TextFormatter.csproj", "{36BAD910-1D88-4745-88B2-A5F4934C1E65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextFormatter", "TextFormatter\TextFormatter.csproj", "{36BAD910-1D88-4745-88B2-A5F4934C1E65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyboardTrainer", "KeyboardTrainer\KeyboardTrainer.csproj", "{5FCC1337-B379-4650-923D-186FAA20E600}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyboardTrainer", "KeyboardTrainer\KeyboardTrainer.csproj", "{5FCC1337-B379-4650-923D-186FAA20E600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBD", "CarBD\CarBD.csproj", "{F924646F-6561-4E86-AB59-CF8FFAC010E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5FCC1337-B379-4650-923D-186FAA20E600}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FCC1337-B379-4650-923D-186FAA20E600}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FCC1337-B379-4650-923D-186FAA20E600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F924646F-6561-4E86-AB59-CF8FFAC010E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F924646F-6561-4E86-AB59-CF8FFAC010E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F924646F-6561-4E86-AB59-CF8FFAC010E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F924646F-6561-4E86-AB59-CF8FFAC010E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
