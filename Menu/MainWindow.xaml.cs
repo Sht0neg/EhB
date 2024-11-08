@@ -37,8 +37,15 @@ namespace Menu
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
-                    table.ItemsSource = dataTable.DefaultView;
-
+                    if (SortBox.Text != "")
+                    {
+                        var result = from r in dataTable.AsEnumerable() where r.Field<string>("name").StartsWith($"{SortBox.Text}") select r;
+                        table.ItemsSource = result.AsDataView();
+                    }
+                    else
+                    {
+                        table.ItemsSource = dataTable.DefaultView;
+                    }
                 }
                 catch (Exception ex) { }
             }
@@ -76,6 +83,11 @@ namespace Menu
                 }
                 catch (Exception ex) { }
             }
+            LoadData();
+        }
+
+        private void SortBut_Click(object sender, RoutedEventArgs e)
+        {
             LoadData();
         }
     }
