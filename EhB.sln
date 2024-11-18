@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyboardTrainer", "Keyboard
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBD", "CarBD\CarBD.csproj", "{F924646F-6561-4E86-AB59-CF8FFAC010E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu", "Menu\Menu.csproj", "{76899756-7CC6-4CE0-A1D2-9BAF20D23F32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu", "Menu\Menu.csproj", "{76899756-7CC6-4CE0-A1D2-9BAF20D23F32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servises", "Servises\Servises.csproj", "{C55DEE3E-B043-4E18-BFD3-34B611670C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servises.Tests", "Servises.Tests\Servises.Tests.csproj", "{97497071-CDEB-400B-8828-46767E2FD250}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{76899756-7CC6-4CE0-A1D2-9BAF20D23F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76899756-7CC6-4CE0-A1D2-9BAF20D23F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76899756-7CC6-4CE0-A1D2-9BAF20D23F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55DEE3E-B043-4E18-BFD3-34B611670C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55DEE3E-B043-4E18-BFD3-34B611670C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55DEE3E-B043-4E18-BFD3-34B611670C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55DEE3E-B043-4E18-BFD3-34B611670C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97497071-CDEB-400B-8828-46767E2FD250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97497071-CDEB-400B-8828-46767E2FD250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97497071-CDEB-400B-8828-46767E2FD250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97497071-CDEB-400B-8828-46767E2FD250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

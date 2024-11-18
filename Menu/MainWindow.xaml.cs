@@ -31,12 +31,7 @@ namespace Menu
             {
                 try
                 {
-                    conn.Open();
-                    string strCommand = "SELECT * FROM Dish";
-                    MySqlCommand cmd = new MySqlCommand(strCommand, conn);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
+                    DataTable dataTable = new Servises.Initialisation().Init(conn);
                     if (SortBox.Text != "")
                     {
                         var result = from r in dataTable.AsEnumerable() where r.Field<string>("name").StartsWith($"{SortBox.Text}") select r;
