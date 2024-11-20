@@ -31,7 +31,7 @@ namespace Menu
             {
                 try
                 {
-                    DataTable dataTable = new Servises.Initialisation().Init(conn);
+                    DataTable dataTable = new Servises.Initialisation().Init(conn, "Dish");
                     if (SortBox.Text != "")
                     {
                         var result = from r in dataTable.AsEnumerable() where r.Field<string>("name").StartsWith($"{SortBox.Text}") select r;
