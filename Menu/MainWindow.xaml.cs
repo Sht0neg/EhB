@@ -26,7 +26,8 @@ namespace Menu
         }
         public void LoadData()
         {
-            string strConnection = "Server=127.0.0.1;Database=Menu;Uid=root;Pwd=12345";
+            string strConnection = "Server=127.0.0.1;Database=Menu;Uid=root;Pwd=123" +
+                "45";
             using (MySqlConnection conn = new MySqlConnection(strConnection))
             {
                 try
