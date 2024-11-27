@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using System.Data;
 
 namespace Servises.Tests
 {
@@ -25,6 +26,7 @@ namespace Servises.Tests
 
             _connnection.Setup(s => s.Open());
             _command.Setup(c => c.ExecuteReader()).Returns(new Mock<MySqlDataReader>().Object);
+            _adapter.Setup(a => a.Fill(It.IsAny<DataTable>())).Callback<DataTable>(dt => { dt.Columns.Add("name"); dt.Rows.Add("Первое"); });
         }
     }
 }

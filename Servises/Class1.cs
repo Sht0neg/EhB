@@ -35,5 +35,21 @@ namespace Servises
             var result = from r in dataTable.AsEnumerable() where r.Field<string>(field).ToLower().StartsWith(keyworld.ToLower()) select r;
             return result.AsDataView().ToTable();
         }
+        public bool DeleteRow(MySqlConnection conn, string tablename, int id){
+            try
+            {
+                conn.Open();
+                string strCommand = $"DELETE FROM {tablename} WHERE Id={id}";
+                MySqlCommand cmd = new MySqlCommand(strCommand, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return false;
+        }
     }
 }

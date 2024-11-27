@@ -19,7 +19,31 @@ namespace Servises.Tests
                 MySqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = str;
                 cmd.ExecuteNonQuery();
-            
+
+            }
+        }
+
+        [Test]
+        public void TestDelTr()
+        {
+            string strConn = "Server=127.0.0.1;Database=MenuTest;Uid=root;Pwd=12345";
+            using (var conn = new MySqlConnection(strConn))
+            {
+                bool result = new Initialisation().DeleteRow(conn, "Dish", 1);
+                DataTable dt = new Initialisation().Init(conn, "Dish");
+                Assert.IsTrue(result && dt.Rows.Count == 1);
+            }
+        }
+
+        [Test]
+        public void TestDelFl()
+        {
+            string strConn = "Server=127.0.0.1;Database=MenuTest;Uid=root;Pwd=12345";
+            using (var conn = new MySqlConnection(strConn))
+            {
+                bool result = new Initialisation().DeleteRow(conn, "Dish", 100);
+                DataTable dt = new Initialisation().Init(conn, "Dish");
+                Assert.IsFalse(result || dt.Rows.Count == 5);
             }
         }
 
@@ -61,7 +85,7 @@ namespace Servises.Tests
                 DataRow row = dataTable.Rows[0];
                 Assert.That(row.Field<string>("name") == "Первое");
             }
-            
+
         }
 
 
