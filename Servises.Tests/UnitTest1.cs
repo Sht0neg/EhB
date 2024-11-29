@@ -11,6 +11,7 @@ namespace Servises.Tests
         {
             string strConn = "Server=127.0.0.1;Database=MenuTest;Uid=root;Pwd=12345";
 
+
             using (var conn = new MySqlConnection(strConn)) {
                 conn.Open();
                 string str = "CREATE TABLE Dish (id INTEGER PRIMARY KEY AUTO_INCREMENT, name TEXT, price FLOAT, vegetarian BOOL, calories INTEGER);" +
@@ -43,7 +44,7 @@ namespace Servises.Tests
             {
                 bool result = new Initialisation().DeleteRow(conn, "Dish", 100);
                 DataTable dt = new Initialisation().Init(conn, "Dish");
-                Assert.IsFalse(result || dt.Rows.Count == 5);
+                Assert.IsFalse(result && dt.Rows.Count == 5);
             }
         }
 
@@ -53,11 +54,11 @@ namespace Servises.Tests
             string strConn = "Server=127.0.0.1;Database=MenuTest;Uid=root;Pwd=12345";
             using (var conn = new MySqlConnection(strConn))
             {
-                DataTable dataTable = new Initialisation().FilterTable(conn, "Dish", "name", "В");
+                DataTable dataTable = new Initialisation().FilterTable(conn, "Dish", "id", "1");
                 Assert.That(dataTable.Rows.Count == 1);
 
                 DataRow newr = dataTable.Rows[0];
-                Assert.That(newr.Field<string>("name") == "вубабуба");
+                Assert.That(newr.Field<string>("name") == "Первое");
             }
 
         }

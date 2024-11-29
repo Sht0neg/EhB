@@ -14,6 +14,7 @@ namespace Servises
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
+            conn.Close();
             return dataTable;
         }
 
@@ -32,10 +33,23 @@ namespace Servises
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
-            var result = from r in dataTable.AsEnumerable() where r.Field<string>(field).ToLower().StartsWith(keyworld.ToLower()) select r;
-            return result.AsDataView().ToTable();
+            conn.Close();
+            if (field.ToLower() == "id")
+            {
+               var result = from r in dataTable.AsEnumerable() where r.Field<int>(field) == Convert.ToInt32(keyworld) select r;
+               return result.AsDataView().ToTable();
+            }
+            else
+            {
+                var result = from r in dataTable.AsEnumerable() where r.Field<string>(field).ToLower().StartsWith(keyworld.ToLower()) select r;
+                return result.AsDataView().ToTable();
+            }
         }
         public bool DeleteRow(MySqlConnection conn, string tablename, int id){
+            DataTable dt = FilterTable(conn, tablename, "id", Convert.ToString(id));
+            if (dt.Rows.Count == 0) {
+                return false;
+            }
             try
             {
                 conn.Open();
@@ -47,9 +61,8 @@ namespace Servises
             }
             catch (Exception ex)
             {
-                
+                return false;
             }
-            return false;
         }
     }
 }
